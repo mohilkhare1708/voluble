@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from main.models import WordList
+#from .models import Words
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(required=True, help_text='Enter your email')
@@ -14,6 +14,6 @@ class UserRegisterForm(UserCreationForm):
 
 class WordForm(forms.ModelForm):
     class Meta:
-        model = WordList
+        #model = Words
         fields = ['word']
 

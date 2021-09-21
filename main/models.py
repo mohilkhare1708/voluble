@@ -1,10 +1,10 @@
-from django.db import models
+from djongo import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from main.forms import WordForm
 
-class WordList(models.Model):
+class Words(models.Model):
     word = models.CharField(max_length=50)
     class Meta:
         abstract = True
@@ -15,9 +15,11 @@ class Profile(models.Model):
     email = models.EmailField(max_length=150)
     phone = models.CharField(max_length=10)
     words = models.ArrayField(
-        model_container = WordList,
-        model_form_class = WordForm
+        model_container = Words,
+        model_form_class = WordForm,
+        default = [],
     )
+    objects = models.DjongoManager()
 
     def __str__(self):
         return self.user.username
