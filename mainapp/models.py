@@ -1,13 +1,19 @@
 from djongo import models
+from django import forms
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from main.forms import WordForm
 
 class Words(models.Model):
     word = models.CharField(max_length=50)
+    
     class Meta:
         abstract = True
+
+class WordForm(forms.ModelForm):
+    class Meta:
+        model = Words
+        fields = ['word']
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

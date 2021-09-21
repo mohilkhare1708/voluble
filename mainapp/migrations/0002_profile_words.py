@@ -2,20 +2,20 @@
 
 from django.db import migrations
 import djongo.models.fields
-import main.forms
-import main.models
+import mainapp.forms
+import mainapp.models
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0001_initial'),
+        ('mainapp', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='profile',
             name='words',
-            field=djongo.models.fields.ArrayField(default=[], model_container=main.models.Words, model_form_class=main.forms.WordForm),
+            field=djongo.models.fields.ArrayField(default=[], model_container=mainapp.models.Words, model_form_class=mainapp.models.WordForm),
         ),
     ]

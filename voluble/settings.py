@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'djongo',
-    'main.apps.MainConfig',
+    'mainapp.apps.MainappConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -1,13 +1,20 @@
-{% extends 'main/base.html' %} {% load static %} {% block content %}
-
+{% extends 'mainapp/base.html' %} {% load static %} {% load crispy_forms_tags %} {% block content %} 
+<style> 
+.asteriskField {
+    color : red;
+}
+</style>
 <main id="main">
   <!-- ======= Services Section ======= -->
   <section id="about" class="services section-bg">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
-        <h2 class="mt-5">Word giving you trouble?</h2>
+        <h2 class="mt-5">LogIn</h2>
         <p>
-          Let's add learn it together and then I can add it to your list!
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
         </p>
       </div>
 
@@ -17,9 +24,9 @@
           data-aos="zoom-in"
           data-aos-delay="100"
         >
-          <div class="icon-box" style="width: 400px;">
-            <div class="icon"><i class='bx bxs-book-add' ></i></div>
-            <h4><a href="#">Add words to study</a></h4>
+          <div class="icon-box">
+            <div class="icon"><i class="bx bxs-user-check"></i></div>
+            <h4><a href="">Please enter your credentials</a></h4>
             <form method="POST">
               {% csrf_token %}
               <fieldset class="form-group">
@@ -27,16 +34,14 @@
               </fieldset>
               <div class="form-group mt-2">
                 <button class="btn btn-outline-info" type="submit">
-                  Register
+                  Log in
                 </button>
               </div>
             </form>
-            <img src = "{% static 'main/img/add.png' %}" class="d-flex justify-content-center" style="height: 250px;"/>
           </div>
         </div>
       </div>
     </div>
   </section>
 </main>
-
 {% endblock content %}
