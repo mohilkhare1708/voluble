@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %} {% load static %} {% block content %}
+
+<main id="main">
+  <!-- ======= Services Section ======= -->
+  <section id="about" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2 class="mt-5">Word giving you trouble?</h2>
+        <p>
+          Let's add learn it together and then I can add it to your list!
+        </p>
+      </div>
+
+      <div class="row">
+        <div
+          class="d-flex justify-content-center"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="icon-box" style="width: 400px;">
+            <div class="icon"><i class='bx bxs-book-add' ></i></div>
+            <h4><a href="#">Add words to study</a></h4>
+            <form method="POST">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                {{ form|crispy }}
+              </fieldset>
+              <div class="form-group mt-2">
+                <button class="btn btn-outline-info" type="submit">
+                  Register
+                </button>
+              </div>
+            </form>
+            <img src = "{% static 'main/img/add.png' %}" class="d-flex justify-content-center" style="height: 250px;"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %} {% load static %} {% load crispy_forms_tags %} {% block content %} 
+<style> 
+.asteriskField {
+    color : red;
+}
+</style>
+<main id="main">
+  <!-- ======= Services Section ======= -->
+  <section id="about" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2 class="mt-5">Register</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <div class="row">
+        <div
+          class="d-flex justify-content-center"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="icon-box">
+            <div class="icon"><i class="bx bxs-user-check"></i></div>
+            <h4><a href="">Please enter your details</a></h4>
+            <form method="POST">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                {{ form|crispy }}
+              </fieldset>
+              <div class="form-group mt-2">
+                <button class="btn btn-outline-info" type="submit">
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock content %}

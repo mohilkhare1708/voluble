@@ -1,0 +1,53 @@
+from django.shortcuts import render, redirect
+from .forms import UserRegisterForm, WordForm
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+# Create your views here.
+
+def home_page(request):
+    return render(request, 'main/home.html', {'title' : 'Home'})
+
+@login_required
+def choice_page(request):
+    return render(request, 'main/choice.html', {'title' : 'Choose'})
+
+@login_required
+def revise_page(request):
+    return render(request, 'main/revise.html', {'title' : 'Revise'})
+
+@login_required
+def add_word_page(request):
+    if request.method == 'POST':
+        form = WordForm(request.POST)
+        if form.is_valid():
+            word = form.cleaned_data.get('word')
+            user = request.user
+            user.profile.words.append(word)
+            user.save()
+            return redirect('choice-page')
+        else:
+            form = WordForm()
+    return render(request, 'main/addWord.html', {'title' : 'Add Word', 'form' : form})
+
+def register_page(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()
+            user.profile.full_name = form.cleaned_data.get('full_name')
+            user.profile.email = form.cleaned_data.get('email')
+            user.profile.phone = form.cleaned_data.get('phone')
+            user.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            messages.success(request, f'Account created for {username}!')
+            login(request, user)
+            return redirect('login-page')
+    else:
+        print("bro")
+        form = UserRegisterForm()
+    return render(request, 'main/register.html', {'title' : 'Register', 'form' : form})

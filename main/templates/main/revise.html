@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %} {% load static %} {% block content %}
+
+<main id="main">
+  <!-- ======= Services Section ======= -->
+  <section id="about" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2 class="mt-5">What Can I Do For You?</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <div class="row">
+        <div
+          class="col-xl-6 col-md-6 d-flex justify-content-center"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="icon-box" style="width: 400px;">
+            <div class="icon"><i class='bx bxs-book-open' ></i></div>
+            <h4><a href="">Revise your words</a></h4>
+            <img src = "{% static 'main/img/revise.png' %}" class="d-flex justify-content-center" style="height: 250px;"/>
+          </div>
+        </div>
+        <div
+          class="col-xl-6 col-md-6 d-flex justify-content-center"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="icon-box" style="width: 400px;">
+            <div class="icon"><i class='bx bxs-book-add' ></i></div>
+            <h4><a href="">Add words to study</a></h4>
+            <img src = "{% static 'main/img/add.png' %}" class="d-flex justify-content-center" style="height: 250px;"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}
