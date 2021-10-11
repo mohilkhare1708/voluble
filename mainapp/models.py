@@ -25,6 +25,7 @@ class Profile(models.Model):
         model_form_class = WordForm,
         default = [],
     )
+    wordString = models.CharField(max_length=4000, default="")
     objects = models.DjongoManager()
 
     def __str__(self):
