@@ -50,3 +50,7 @@ def register_page(request):
         print("bro")
         form = UserRegisterForm()
     return render(request, 'mainapp/register.html', {'title' : 'Register', 'form' : form})
+
+@login_required
+def addWord_page(request):
+    return render(request, 'mainapp/revise.html', {'title' : 'Revise'})
