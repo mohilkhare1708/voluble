@@ -4,6 +4,7 @@ from mainapp.models import WordForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+import random
 
 # Create your views here.
 
@@ -54,3 +55,7 @@ def register_page(request):
 @login_required
 def addWord_page(request):
     return render(request, 'mainapp/revise.html', {'title' : 'Revise'})
+
+def randomGen(low,high):
+    res=random.randint(low,high)
+    return res
